@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Data Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color: #333;
+            clear: left;
+            text-align: center;
+        }
+        nav {
+            float: left;
+            max-width: 160px;
+            margin: 0;
+            padding: 1em;
+            background: #555; /* Added background color */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul a {
+            display: block; /* Make links block level for easier clicking */
+            text-decoration: none;
+            color: white; /* White text color */
+            background: #777; /* Background color for links */
+            padding: 8px;
+            margin-bottom: 5px; /* Margin between links */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        nav ul a:hover {
+            background-color: #999; /* Color changes when hovering */
+        }
+        article {
+            margin-left: 200px; /* Increased margin for better separation */
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        // JavaScript function to change the iframe source based on the hovered link
+        function changeSrc(url) {
+            var iframe = document.getElementById('mainFrame');
+            iframe.src = url;
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1>Election Analysis Dashboard</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/ml-comparison')">ML Models Comparison</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/constituencies')">Constituencies</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/top-parties')">Top Parties</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/party-dominance')">Party Dominance</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/criminal-impact')">Criminal Background Impact</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/gender-distribution')">Gender Distribution</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/education')">Educational Qualifications</a></li>
+        <li><a href="javascript:void(0)" onmouseover="changeSrc('/age-distribution')">Age Distribution</a></li>
+    </ul>
+</nav>
+
+<article>
+    <div class="iframe-container">
+        <iframe id="mainFrame" src="/constituencies" frameborder="0"></iframe>
+    </div>
+</article>
+
+<footer>
+    <p>Dashboard created by Your Name</p>
+</footer>
+</body>
+</html>
